@@ -1,0 +1,28 @@
+name: Build & Deploy to Local Mac
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker
+      uses: docker-practice/actions-setup-docker@v1
+
+    - name: Build Docker image
+      run: docker build -t python_template .
+
+    - name: Stop & Remove old container (if exists)
+      run: |
+        docker stop python_template_container || true
+        docker rm python_template_container || true
+
+    - name: Run new container
+      run: |
+        docker run -d -p 4000:4000 --name python_template_container python_template
