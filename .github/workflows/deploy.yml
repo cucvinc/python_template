@@ -2,11 +2,11 @@ name: Build & Deploy to Local Mac
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   build-and-deploy:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
