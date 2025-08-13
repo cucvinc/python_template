@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build Docker image
-        run: docker build -t python-hello .
+        run: docker build -t python_template .
 
       - name: Stop old container if exists
         run: |
-          docker stop hello-app || true
-          docker rm hello-app || true
+          docker stop python_template_container || true
+          docker rm python_template_container || true
 
       - name: Run Docker container
         run: docker run -d -p 4000:4000 --name python_template_container python_template
