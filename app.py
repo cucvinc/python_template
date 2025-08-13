@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 @app.route("/hello", methods=["GET"])
 def hello():
     timestamp = datetime.now().isoformat()
-    message = f"Hello world {timestamp}"
+    message = f"Hello world {timestamp}. Prova"
     app.logger.info(message)
     return message, 200
 
