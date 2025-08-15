@@ -5,10 +5,11 @@ import logging
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
+
 @app.route("/hello", methods=["GET"])
 def hello():
-    timestamp = datetime.now().isoformat()
-    message = f"Ciao Maria, ora sono le {timestamp}."
+    timestamp = datetime.now()
+    message = f"Ciao, ora sono le ore: {timestamp.isoformat()}."
     app.logger.info(message)
     return message, 200
 
