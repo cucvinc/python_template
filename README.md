@@ -14,7 +14,7 @@
 > go to https://github.com/cucvinc/python_template/settings/actions/runners/new
 > follow the scripts in the link
 
-##  Kerberos
+##  Kubernetes
 ###  to install kubectl:
 > brew install kubectl
 ###  to create a local kubernetes cluster with minikube:
