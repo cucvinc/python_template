@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-template-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python_template
+  template:
+    metadata:
+      labels:
+        app: python_template
+    spec:
+      containers:
+      - name: python-template-container
+        image: vincencuccaro/python_template_image:latest
+        ports:
+        - containerPort: 4000
